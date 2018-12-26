@@ -12,7 +12,7 @@ onload = function(){
     var gl = c.getContext('webgl') || c.getContext('experimental-webgl');
 
     // canvasを初期化する色を設定する
-    gl.clearColor(1.0, 1.0, 0.8, 1.0);
+    gl.clearColor(0.9412 ,0.9137 ,0.8314, 1.0);
 
     // canvasを初期化する際の深度を設定する
     gl.clearDepth(1.0);
@@ -119,6 +119,7 @@ onload = function(){
     // uniformLocationへ座標変換行列を登録
     gl.uniformMatrix4fv(uniLocation, false, mvpMatrix);
 
+    gl.lineWidth(0);
     // モデルの描画
     gl.drawArrays(gl.TRIANGLES, 0, vertex_position.length/3);
     gl.drawArrays(gl.LINE_LOOP, 0, vertex_position.length/3);
